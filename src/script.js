@@ -86,6 +86,26 @@ window.addEventListener('DOMContentLoaded', function () {
 
   showKeyBoard(keyLayoutRu);
 
+  //Set language of keyboard by default
+  if (localStorage.getItem('language') === null) {
+    localStorage.setItem('language', 'Ru');
+  }
+
+  //Change language of keyboard
+  document.addEventListener('keydown', (event) => {
+    console.log(event.code);
+    if (event.code === 'ControlLeft' && event.altKey || event.code === 'AltLeft' && event.ctrlKey) {
+
+      if (localStorage.getItem('language') === 'Ru') {
+        localStorage.setItem('language', 'En');
+        showKeyBoard(keyLayoutEn);
+      } else {
+        localStorage.setItem('language', 'Ru');
+        showKeyBoard(keyLayoutRu);
+      }
+
+    }
+  });
 
 
 
@@ -131,7 +151,138 @@ window.addEventListener('DOMContentLoaded', function () {
 
 
 
+  //Press on key
+  document.addEventListener('keydown', (event) => {
 
+    //If key does not exsist in array. nothing to do
+    if (keyCode.indexOf(event.code) === -1) {
+      event.preventDefault(); //нужно 100%. Без этого работает numpad
+      return;
+    }
+
+    //If key exsist add in textarea
+    if (document.querySelector(`[data='${event.code}']`)) {
+      event.preventDefault();  //Отменяю стандарное поведение, для того чтобы ввод был только с виртаульной клавиатуры.
+
+      const pressedKey = document.querySelector(`[data='${event.code}']`);
+      pressedKey.classList.add('keyboard__key_active'); //Добавление анимации при нажатии на клавишу
+
+
+      const textarea = document.querySelector('.input');
+
+      //Если нажат контрл, алт или win, ничего не делать
+      if (event.key === 'Control' || event.key === 'Alt' || event.key === 'Meta') {
+        // event.preventDefault();
+        return;
+      }
+
+
+      console.log('Позиция курсора', textarea.selectionStart);
+
+
+      let currentPointer = textarea.selectionStart;
+
+      //Press Backspace
+      // if (event.code === 'Backspace') {
+      // textarea.value = textarea.value.slice(0,  textarea.value.length - 1);
+      // textarea.value = textarea.value.slice(0,  -1);
+      // event.preventDefault();
+      // return;
+      // }
+
+
+      if (event.code === 'Backspace') {
+
+        if (currentPointer === 0) {
+          return;
+        }
+        textarea.value = textarea.value.slice(0, currentPointer - 1) + textarea.value.slice(currentPointer);
+        textarea.setSelectionRange(currentPointer - 1, currentPointer - 1);
+
+        // event.preventDefault();
+        return;
+      }
+
+      // let str = '123456789';
+      // let i = 4;
+      // console.log(str.slice(0, i - 1) + str.slice(i));
+
+      //Press Space
+      if (event.code === 'Space') {
+        textarea.value = textarea.value.slice(0, currentPointer) + ' ' + textarea.value.slice(currentPointer);
+        textarea.setSelectionRange(currentPointer + 1, currentPointer + 1);
+        return;
+      }
+
+
+      // let str = '123456789';
+      // let i = 4;
+      // console.log(str.slice(0, i) + ' ' + str.slice(i));
+
+      //Press Tab
+      if (event.code === 'Tab') {
+        textarea.value = textarea.value.slice(0, currentPointer) + '    ' + textarea.value.slice(currentPointer);
+        textarea.setSelectionRange(currentPointer + 4, currentPointer + 4);
+        return;
+      }
+
+      //Press Delete
+      // if (event.code === 'Delete') {
+      //   console.log(textarea.value);
+      //   console.log(textarea.value.indexOf(textarea.textContent.length - 1));
+      //   // textarea.value = textarea.value.slice();
+      //   return;
+      // }
+
+      if (event.code === 'Delete') {
+
+        textarea.value = textarea.value.slice(0, currentPointer) + textarea.value.slice(currentPointer + 1);
+        textarea.setSelectionRange(currentPointer, currentPointer);
+
+        return;
+      }
+
+      let str = '123456789';
+      let i = 4;
+      console.log(str.slice(0, i) + str.slice(i + 1));
+
+      //Press Enter
+      if (event.code === 'Enter') {
+        textarea.value = textarea.value.slice(0, currentPointer) + '\n' + textarea.value.slice(currentPointer);
+        textarea.setSelectionRange(currentPointer + 1, currentPointer + 1);
+        return;
+      }
+
+
+      // console.log(textarea.textContent.length);
+
+      textarea.value = textarea.value.slice(0, currentPointer) + pressedKey.textContent + textarea.value.slice(currentPointer);
+      textarea.setSelectionRange(currentPointer + 1, currentPointer + 1);
+
+      // let str = '123456789';
+      // let i = 'P';
+      // console.log(str.slice(0, 3) + i + str.slice(3));
+
+
+
+    }
+
+  });
+
+
+
+  document.addEventListener('keyup', () => {
+
+    const keys = document.querySelectorAll('.keyboard__key');
+
+    for (let i = 0; i < keys.length; i++) {
+      if (keys[i].classList.contains('keyboard__key_active')) {
+        setTimeout(() => {
+          keys[i].classList.remove('keyboard__key_active');
+        }, 200);
+      }
+    }
+  });
 
 
 
