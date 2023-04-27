@@ -387,4 +387,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .bright {
   opacity: 1;
+}
+
+.caps_active {
+  background-color: #ffffff;
+  opacity: 1;
 }/*# sourceMappingURL=style.css.map */
