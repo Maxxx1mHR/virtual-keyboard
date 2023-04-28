@@ -21,7 +21,7 @@ window.addEventListener('DOMContentLoaded', function () {
   function toUpperKeys(keys) {
     let array = [];
     keys.forEach((key, index) => {
-      if(key.length === 1) {
+      if (key.length === 1) {
         array[index] = key.toUpperCase();
       } else {
         array[index] = key;
@@ -33,7 +33,7 @@ window.addEventListener('DOMContentLoaded', function () {
   function toLowerKeys(keys) {
     let array = [];
     keys.forEach((key, index) => {
-      if(key.length === 1) {
+      if (key.length === 1) {
         array[index] = key.toLowerCase();
       } else {
         array[index] = key;
@@ -47,7 +47,7 @@ window.addEventListener('DOMContentLoaded', function () {
     'ё', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace',
     'Tab', 'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', '\\', 'Del',
     'CapsLock', 'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', 'Enter',
-    'Shift', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '.', '↑',  'Shift',
+    'Shift', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '.', '↑', 'Shift',
     'Ctrl', 'Win', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'
   ];
 
@@ -71,7 +71,7 @@ window.addEventListener('DOMContentLoaded', function () {
     'Ё', '!', '"', '№', ';', '%', ':', '?', '*', '(', ')', '_', '+', 'Backspace',
     'Tab', 'Й', 'Ц', 'У', 'К', 'Е', 'Н', 'Г', 'Ш', 'Щ', 'Э', 'Х', 'Ъ', '/', 'Del',
     'CapsLock', 'Ф', 'Ы', 'В', 'А', 'П', 'Р', 'О', 'Л', 'Д', 'Ж', 'Э', 'Enter',
-    'Shift', 'Я', 'Ч', 'С', 'М', 'И', 'Т', 'Ь', 'Б', 'Ю', ',', '↑',  'Shift',
+    'Shift', 'Я', 'Ч', 'С', 'М', 'И', 'Т', 'Ь', 'Б', 'Ю', ',', '↑', 'Shift',
     'Ctrl', 'Win', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'
   ];
 
@@ -80,7 +80,7 @@ window.addEventListener('DOMContentLoaded', function () {
     'Backquote', 'Digit1', 'Digit2', 'Digit3', 'Digit4', 'Digit5', 'Digit6', 'Digit7', 'Digit8', 'Digit9', 'Digit0', 'Minus', 'Equal', 'Backspace',
     'Tab', 'KeyQ', 'KeyW', 'KeyE', 'KeyR', 'KeyT', 'KeyY', 'KeyU', 'KeyI', 'KeyO', 'KeyP', 'BracketLeft', 'BracketRight', 'Backslash', 'Delete',
     'CapsLock', 'KeyA', 'KeyS', 'KeyD', 'KeyF', 'KeyG', 'KeyH', 'KeyJ', 'KeyK', 'KeyL', 'Semicolon', 'Quote', 'Enter',
-    'ShiftLeft', 'KeyZ', 'KeyX', 'KeyC', 'KeyV', 'KeyB', 'KeyN', 'KeyM', 'Comma', 'Period', 'Slash', 'ArrowUp',  'ShiftRight',
+    'ShiftLeft', 'KeyZ', 'KeyX', 'KeyC', 'KeyV', 'KeyB', 'KeyN', 'KeyM', 'Comma', 'Period', 'Slash', 'ArrowUp', 'ShiftRight',
     'ControlLeft', 'MetaLeft', 'AltLeft', 'Space', 'AltRight', 'ArrowLeft', 'ArrowDown', 'ArrowRight', 'ControlRight'
   ];
 
@@ -88,7 +88,7 @@ window.addEventListener('DOMContentLoaded', function () {
     '`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace',
     'Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'Del',
     'CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', 'Enter',
-    'Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', '↑',  'Shift',
+    'Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', '↑', 'Shift',
     'Ctrl', 'Win', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'
   ];
 
@@ -104,7 +104,7 @@ window.addEventListener('DOMContentLoaded', function () {
     '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', 'Backspace',
     'Tab', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '{', '}', '|', 'Del',
     'CapsLock', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', '"', 'Enter',
-    'Shift', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '<', '>', '?', '↑',  'Shift',
+    'Shift', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '<', '>', '?', '↑', 'Shift',
     'Ctrl', 'Win', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'
   ];
 
@@ -127,19 +127,19 @@ window.addEventListener('DOMContentLoaded', function () {
       if (localStorage.getItem('language') === 'Ru') {
         localStorage.setItem('language', 'En');
         if (document.querySelector('[data = "CapsLock"]').classList.contains('caps_active')) {
-          showKeyBoard(toUpperKeys(keyLayoutRu));
+          showKeyBoard(toUpperKeys(keyLayoutEn));
           document.querySelector('[data = "CapsLock"]').classList.add('caps_active');
         } else {
-          showKeyBoard(keyLayoutRu);
+          showKeyBoard(keyLayoutEn);
         }
 
       } else {
         localStorage.setItem('language', 'Ru');
         if (document.querySelector('[data = "CapsLock"]').classList.contains('caps_active')) {
-          showKeyBoard(toUpperKeys(keyLayoutEn));
+          showKeyBoard(toUpperKeys(keyLayoutRu));
           document.querySelector('[data = "CapsLock"]').classList.add('caps_active');
         } else {
-          showKeyBoard(keyLayoutEn);
+          showKeyBoard(keyLayoutRu);
         }
       }
 
@@ -263,8 +263,54 @@ window.addEventListener('DOMContentLoaded', function () {
         return;
       }
 
+
+      // if (event.key === 'Shift') {
+      //   if (localStorage.getItem('language') === 'Ru') {
+      //     if (document.querySelector('[data = "CapsLock"]').classList.contains('caps_active')) {
+      //       showKeyBoard(toLowerKeys(keyLayoutRuShift));
+      //       document.querySelector('[data = "CapsLock"]').classList.add('caps_active');
+      //       document.querySelector(`[data = ${event.code}]`).classList.add('keyboard__key_active');
+      //       return;
+      //     } else {
+      //       showKeyBoard(keyLayoutRuShift);
+      //       document.querySelector(`[data = ${event.code}]`).classList.add('keyboard__key_active');
+      //       return;
+      //     }
+      //   }
+      // }
+      // if (event.key === 'Shift') {
+      //   if (localStorage.getItem('language') === 'En') {
+      //     if (document.querySelector('[data = "CapsLock"]').classList.contains('caps_active')) {
+      //       showKeyBoard(toLowerKeys(keyLayoutEnShift));
+      //       document.querySelector('[data = "CapsLock"]').classList.add('caps_active');
+      //       document.querySelector(`[data = ${event.code}]`).classList.add('keyboard__key_active');
+      //       return;
+      //     } else {
+      //       showKeyBoard(keyLayoutEnShift);
+      //       document.querySelector(`[data = ${event.code}]`).classList.add('keyboard__key_active');
+      //       return;
+      //     }
+      //   }
+      // }
+
+      //   else {
+      //     if (document.querySelector('[data = "CapsLock"]').classList.contains('caps_active')) {
+      //       showKeyBoard(toLowerKeys(keyLayoutEnShift));
+      //       document.querySelector('[data = "CapsLock"]').classList.add('caps_active');
+      //       document.querySelector(`[data = ${event.code}]`).classList.add('keyboard__key_active');
+      //       return;
+      //     } else {
+      //       showKeyBoard(keyLayoutEnShift);
+      //       document.querySelector(`[data = ${event.code}]`).classList.add('keyboard__key_active');
+      //       return;
+      //     }
+      //   }
+      // }
+
+
+
       if (event.key === 'Shift') {
-        if (localStorage.getItem('language') === 'Ru' ) {
+        if (localStorage.getItem('language') === 'Ru') {
           if (document.querySelector('[data = "CapsLock"]').classList.contains('caps_active')) {
             showKeyBoard(toLowerKeys(keyLayoutRuShift));
             document.querySelector('[data = "CapsLock"]').classList.add('caps_active');
@@ -288,6 +334,8 @@ window.addEventListener('DOMContentLoaded', function () {
           }
         }
       }
+
+
 
       if (event.code === 'CapsLock') {
         if (localStorage.getItem('language') === 'Ru') {
@@ -330,7 +378,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     const keys = document.querySelectorAll('.keyboard__key');
 
-    if(document.querySelector(`[data='${event.code}']`)) {
+    if (document.querySelector(`[data='${event.code}']`)) {
       setTimeout(() => {
 
         document.querySelector(`[data='${event.code}']`).classList.remove('keyboard__key_active');
