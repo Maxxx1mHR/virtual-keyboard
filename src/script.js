@@ -3,19 +3,19 @@
 window.addEventListener('DOMContentLoaded', function () {
 
   //Create container element
-  const container = document.createElement('div');
-  container.classList.add('container');
-  document.body.append(container);
+  const createContainer = document.createElement('div');
+  createContainer.classList.add('container');
+  document.body.append(createContainer);
 
   //Create textarea
-  const textarea = document.createElement('textarea');
-  textarea.classList.add('input');
-  container.append(textarea);
+  const createTextarea = document.createElement('textarea');
+  createTextarea.classList.add('input');
+  createContainer.append(createTextarea);
 
   //Create keyboard element
-  const keyboard = document.createElement('div');
-  keyboard.classList.add('keyboard');
-  container.append(keyboard);
+  const createKeyboard = document.createElement('div');
+  createKeyboard.classList.add('keyboard');
+  createContainer.append(createKeyboard);
 
 
   function toUpperKeys(keys) {
@@ -51,22 +51,6 @@ window.addEventListener('DOMContentLoaded', function () {
     'Ctrl', 'Win', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'
   ];
 
-
-
-  // keyLayoutRu.forEach((key) => {
-  //   if(key.length === 1) {
-  //     console.log(key.toUpperCase());
-  //   }
-  // });
-
-  // const keyLayoutRuCaps = [
-  //   'Ё', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace',
-  //   'Tab', 'Й', 'Ц', 'У', 'К', 'Е', 'Н', 'Г', 'Ш', 'Щ', 'Э', 'Х', 'Ъ', '\\', 'Del',
-  //   'CapsLock', 'Ф', 'Ы', 'В', 'А', 'П', 'Р', 'О', 'Л', 'Д', 'Ж', 'Э', 'Enter',
-  //   'Shift', 'Я', 'Ч', 'С', 'М', 'И', 'Т', 'Ь', 'Б', 'Ю', '.', '↑',  'Shift',
-  //   'Ctrl', 'Win', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'
-  // ];
-
   const keyLayoutRuShift = [
     'Ё', '!', '"', '№', ';', '%', ':', '?', '*', '(', ')', '_', '+', 'Backspace',
     'Tab', 'Й', 'Ц', 'У', 'К', 'Е', 'Н', 'Г', 'Ш', 'Щ', 'Э', 'Х', 'Ъ', '/', 'Del',
@@ -74,7 +58,6 @@ window.addEventListener('DOMContentLoaded', function () {
     'Shift', 'Я', 'Ч', 'С', 'М', 'И', 'Т', 'Ь', 'Б', 'Ю', ',', '↑', 'Shift',
     'Ctrl', 'Win', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'
   ];
-
 
   const keyCode = [
     'Backquote', 'Digit1', 'Digit2', 'Digit3', 'Digit4', 'Digit5', 'Digit6', 'Digit7', 'Digit8', 'Digit9', 'Digit0', 'Minus', 'Equal', 'Backspace',
@@ -92,14 +75,6 @@ window.addEventListener('DOMContentLoaded', function () {
     'Ctrl', 'Win', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'
   ];
 
-  // const keyLayoutEnCaps = [
-  //   '`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace',
-  //   'Tab', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '[', ']', '\\', 'Del',
-  //   'CapsLock', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ';', '\'', 'Enter',
-  //   'Shift', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', ',', '.', '/', '↑',  'Shift',
-  //   'Ctrl', 'Win', 'Alt', 'Space', 'Alt', '←', '↓', '→', 'Ctrl'
-  // ];
-
   const keyLayoutEnShift = [
     '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', 'Backspace',
     'Tab', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '{', '}', '|', 'Del',
@@ -109,7 +84,13 @@ window.addEventListener('DOMContentLoaded', function () {
   ];
 
 
-  // showKeyBoard(keyLayoutRu);
+
+
+  const keyboard = document.querySelector('.keyboard');
+  const textarea = document.querySelector('.input');
+
+
+
 
   //Set language of keyboard by default
   if (localStorage.getItem('language') === null || localStorage.getItem('language') === 'Ru') {
@@ -121,7 +102,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
   //Change language of keyboard
   document.addEventListener('keydown', (event) => {
-    // console.log(event.code);
+
     if (event.code === 'ControlLeft' && event.altKey || event.code === 'AltLeft' && event.ctrlKey) {
 
       if (localStorage.getItem('language') === 'Ru') {
@@ -186,9 +167,6 @@ window.addEventListener('DOMContentLoaded', function () {
   }
 
 
-  const KEYBOARD = document.querySelector('.keyboard');
-
-
 
   //Press on key
   document.addEventListener('keydown', (event) => {
@@ -206,23 +184,23 @@ window.addEventListener('DOMContentLoaded', function () {
 
       const pressedKey = document.querySelector(`[data='${event.code}']`);
 
+
       pressedKey.classList.add('keyboard__key_active'); //Добавление анимации при нажатии на клавишу
 
-      // console.log('EVETN', event.target);
 
 
-
-
-      const textarea = document.querySelector('.input');
+      // const textarea = document.querySelector('.input');
 
       //Если нажат контрл, алт или win, ничего не делать
       if (event.key === 'Control' || event.key === 'Alt' || event.key === 'Meta') {
         return;
       }
 
-      // console.log('Позиция курсора', textarea.selectionStart);
 
+      // currentPointer = textarea.selectionStart;
       let currentPointer = textarea.selectionStart;
+
+      console.log('KEY POINTER', currentPointer);
 
       if (event.code === 'Backspace') {
 
@@ -231,7 +209,7 @@ window.addEventListener('DOMContentLoaded', function () {
         }
         textarea.value = textarea.value.slice(0, currentPointer - 1) + textarea.value.slice(currentPointer);
         textarea.setSelectionRange(currentPointer - 1, currentPointer - 1);
-
+        console.log('Point', currentPointer);
         return;
       }
 
@@ -253,6 +231,7 @@ window.addEventListener('DOMContentLoaded', function () {
         textarea.value = textarea.value.slice(0, currentPointer) + textarea.value.slice(currentPointer + 1);
         textarea.setSelectionRange(currentPointer, currentPointer);
 
+
         return;
       }
 
@@ -262,51 +241,6 @@ window.addEventListener('DOMContentLoaded', function () {
         textarea.setSelectionRange(currentPointer + 1, currentPointer + 1);
         return;
       }
-
-
-      // if (event.key === 'Shift') {
-      //   if (localStorage.getItem('language') === 'Ru') {
-      //     if (document.querySelector('[data = "CapsLock"]').classList.contains('caps_active')) {
-      //       showKeyBoard(toLowerKeys(keyLayoutRuShift));
-      //       document.querySelector('[data = "CapsLock"]').classList.add('caps_active');
-      //       document.querySelector(`[data = ${event.code}]`).classList.add('keyboard__key_active');
-      //       return;
-      //     } else {
-      //       showKeyBoard(keyLayoutRuShift);
-      //       document.querySelector(`[data = ${event.code}]`).classList.add('keyboard__key_active');
-      //       return;
-      //     }
-      //   }
-      // }
-      // if (event.key === 'Shift') {
-      //   if (localStorage.getItem('language') === 'En') {
-      //     if (document.querySelector('[data = "CapsLock"]').classList.contains('caps_active')) {
-      //       showKeyBoard(toLowerKeys(keyLayoutEnShift));
-      //       document.querySelector('[data = "CapsLock"]').classList.add('caps_active');
-      //       document.querySelector(`[data = ${event.code}]`).classList.add('keyboard__key_active');
-      //       return;
-      //     } else {
-      //       showKeyBoard(keyLayoutEnShift);
-      //       document.querySelector(`[data = ${event.code}]`).classList.add('keyboard__key_active');
-      //       return;
-      //     }
-      //   }
-      // }
-
-      //   else {
-      //     if (document.querySelector('[data = "CapsLock"]').classList.contains('caps_active')) {
-      //       showKeyBoard(toLowerKeys(keyLayoutEnShift));
-      //       document.querySelector('[data = "CapsLock"]').classList.add('caps_active');
-      //       document.querySelector(`[data = ${event.code}]`).classList.add('keyboard__key_active');
-      //       return;
-      //     } else {
-      //       showKeyBoard(keyLayoutEnShift);
-      //       document.querySelector(`[data = ${event.code}]`).classList.add('keyboard__key_active');
-      //       return;
-      //     }
-      //   }
-      // }
-
 
 
       if (event.key === 'Shift') {
@@ -363,6 +297,8 @@ window.addEventListener('DOMContentLoaded', function () {
         }
       }
 
+      console.log('Point', currentPointer);
+
 
       textarea.value = textarea.value.slice(0, currentPointer) + pressedKey.textContent + textarea.value.slice(currentPointer);
       textarea.setSelectionRange(currentPointer + 1, currentPointer + 1);
@@ -376,8 +312,6 @@ window.addEventListener('DOMContentLoaded', function () {
 
   document.addEventListener('keyup', (event) => {
 
-    const keys = document.querySelectorAll('.keyboard__key');
-
     if (document.querySelector(`[data='${event.code}']`)) {
       setTimeout(() => {
 
@@ -386,16 +320,6 @@ window.addEventListener('DOMContentLoaded', function () {
       }, 200);
     }
 
-    //Анимация нажатых клавишь
-    // for (let i = 0; i < keys.length; i++) {
-    //   if (keys[i].classList.contains('keyboard__key_active')) {
-    //     setTimeout(() => {
-    //       keys[i].classList.remove('keyboard__key_active');
-    //     }, 200);
-    //   }
-    // }
-
-    // console.log(document.querySelector('[data = "CapsLock"]').classList.contains('caps_active'));
     if (localStorage.getItem('language') === 'Ru' && event.key === 'Shift') {
       if (document.querySelector('[data = "CapsLock"]').classList.contains('caps_active')) {
         console.log('ACTIVE');
@@ -416,14 +340,161 @@ window.addEventListener('DOMContentLoaded', function () {
       }
     }
 
-    // if (event.key === 'Shift') {
-    // document.querySelector(`[data='${event.code}']`).classList.add('keyboard__key_active');
-    // document.querySelector(`[data='${event.code}']`).classList.add('keyboard__key_active');
-    // showKeyBoard(keyLayoutRu);
-    // }
+
+  });
+
+
+  //Click by mouse
+
+  keyboard.addEventListener('mousedown', (event) => {
+
+    if (event.target.classList.contains('keyboard__key') && !event.target.classList.contains('keyboard__key_active')) {
+
+      event.preventDefault();
+      event.target.classList.add('keyboard__key_active');
+
+      let currentPointer = textarea.selectionStart;
+
+
+      if (event.target.getAttribute('data') === 'Backspace') {
+        if (currentPointer === 0) {
+          return;
+        }
+        textarea.value = textarea.value.slice(0, currentPointer - 1) + textarea.value.slice(currentPointer);
+        textarea.setSelectionRange(currentPointer - 1, currentPointer - 1);
+        console.log('Point', currentPointer);
+        return;
+      }
+
+      if (event.target.getAttribute('data') === 'Space') {
+        textarea.value = textarea.value.slice(0, currentPointer) + ' ' + textarea.value.slice(currentPointer);
+        textarea.setSelectionRange(currentPointer + 1, currentPointer + 1);
+        return;
+      }
+
+
+      if (event.target.getAttribute('data') === 'Tab') {
+        textarea.value = textarea.value.slice(0, currentPointer) + '    ' + textarea.value.slice(currentPointer);
+        textarea.setSelectionRange(currentPointer + 4, currentPointer + 4);
+        return;
+      }
+
+      if (event.target.getAttribute('data') === 'Delete') {
+        textarea.value = textarea.value.slice(0, currentPointer) + textarea.value.slice(currentPointer + 1);
+        textarea.setSelectionRange(currentPointer, currentPointer);
+        return;
+      }
+
+
+      if (event.target.getAttribute('data') === 'Enter') {
+        textarea.value = textarea.value.slice(0, currentPointer) + '\n' + textarea.value.slice(currentPointer);
+        textarea.setSelectionRange(currentPointer + 1, currentPointer + 1);
+        return;
+      }
+
+
+      if (event.target.textContent === 'Shift') {
+        if (localStorage.getItem('language') === 'Ru') {
+          if (document.querySelector('[data = "CapsLock"]').classList.contains('caps_active')) {
+            showKeyBoard(toLowerKeys(keyLayoutRuShift));
+            document.querySelector('[data = "CapsLock"]').classList.add('caps_active');
+            document.querySelector(`[data = ${event.target.getAttribute('data')}]`).classList.add('keyboard__key_active');
+            return;
+          } else {
+            showKeyBoard(keyLayoutRuShift);
+            document.querySelector(`[data = ${event.target.getAttribute('data')}]`).classList.add('keyboard__key_active');
+            return;
+          }
+        } else {
+          if (document.querySelector('[data = "CapsLock"]').classList.contains('caps_active')) {
+            showKeyBoard(toLowerKeys(keyLayoutEnShift));
+            document.querySelector('[data = "CapsLock"]').classList.add('caps_active');
+            document.querySelector(`[data = ${event.target.getAttribute('data')}]`).classList.add('keyboard__key_active');
+            return;
+          } else {
+            showKeyBoard(keyLayoutEnShift);
+            document.querySelector(`[data = ${event.target.getAttribute('data')}]`).classList.add('keyboard__key_active');
+            return;
+          }
+        }
+      }
+
+
+      if (event.target.getAttribute('data') === 'CapsLock') {
+        if (localStorage.getItem('language') === 'Ru') {
+          if (document.querySelector('[data = "CapsLock"]').classList.contains('caps_active')) {
+            showKeyBoard(toLowerKeys(keyLayoutRu));
+            document.querySelector('[data = "CapsLock"]').classList.remove('caps_active');
+            return;
+          }
+          else {
+            showKeyBoard(toUpperKeys(keyLayoutRu));
+            document.querySelector('[data = "CapsLock"]').classList.add('caps_active');
+            return;
+          }
+        } else {
+          if (document.querySelector('[data = "CapsLock"]').classList.contains('caps_active')) {
+            showKeyBoard(toLowerKeys(keyLayoutEn));
+            document.querySelector('[data = "CapsLock"]').classList.remove('caps_active');
+            return;
+          }
+          else {
+            showKeyBoard(toUpperKeys(keyLayoutEn));
+            document.querySelector('[data = "CapsLock"]').classList.add('caps_active');
+            return;
+          }
+        }
+      }
+
+
+
+
+      textarea.value = textarea.value.slice(0, currentPointer) + event.target.textContent + textarea.value.slice(currentPointer);
+      textarea.setSelectionRange(currentPointer + 1, currentPointer + 1);
+
+    }
+
+  });
+
+  document.addEventListener('mouseup', (event) => {
+
+    document.querySelectorAll('.keyboard__key').forEach(item => {
+      setTimeout(() => {
+        item.classList.remove('keyboard__key_active');
+      }, 200);
+
+    });
+
+
+
+    if (localStorage.getItem('language') === 'Ru' && event.target.textContent === 'Shift') {
+      if (document.querySelector('[data = "CapsLock"]').classList.contains('caps_active')) {
+        console.log('ACTIVE');
+        showKeyBoard(toUpperKeys(keyLayoutRu));
+        document.querySelector('[data = "CapsLock"]').classList.add('caps_active');
+      } else {
+        showKeyBoard(keyLayoutRu);
+      }
+    }
+
+    if (localStorage.getItem('language') === 'En' && event.target.textContent === 'Shift') {
+      if (document.querySelector('[data = "CapsLock"]').classList.contains('caps_active')) {
+        console.log('ACTIVE');
+        showKeyBoard(toUpperKeys(keyLayoutEn));
+        document.querySelector('[data = "CapsLock"]').classList.add('caps_active');
+      } else {
+        showKeyBoard(keyLayoutEn);
+      }
+    }
 
 
   });
+
+
+
+
+
+
 
 
 
