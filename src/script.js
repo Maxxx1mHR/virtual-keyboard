@@ -2,10 +2,17 @@
 
 window.addEventListener('DOMContentLoaded', function () {
 
+
   //Create container element
   const createContainer = document.createElement('div');
   createContainer.classList.add('container');
   document.body.append(createContainer);
+
+  //Create title
+  const creatTitle = document.createElement('h1');
+  creatTitle.classList.add('title');
+  creatTitle.textContent = 'RSS Виртуальная клавиатура';
+  createContainer.append(creatTitle);
 
   //Create textarea
   const createTextarea = document.createElement('textarea');
@@ -16,6 +23,20 @@ window.addEventListener('DOMContentLoaded', function () {
   const createKeyboard = document.createElement('div');
   createKeyboard.classList.add('keyboard');
   createContainer.append(createKeyboard);
+
+  //Create description
+  const createDescription = document.createElement('div');
+  createDescription.classList.add('description');
+  document.body.append(createDescription);
+
+  const createOS = document.createElement('div');
+  createOS.textContent = 'Клавиатура создана в операционной системе Windows';
+
+  const createLanguage = document.createElement('div');
+  createLanguage.textContent = 'Для переключения языка комбинация: левыe ctrl + alt';
+  createDescription.append(createOS);
+  createDescription.append(createLanguage);
+  createContainer.append(createDescription);
 
 
   function toUpperKeys(keys) {
@@ -105,13 +126,19 @@ window.addEventListener('DOMContentLoaded', function () {
 
     if (event.code === 'ControlLeft' && event.altKey || event.code === 'AltLeft' && event.ctrlKey) {
 
+
+
       if (localStorage.getItem('language') === 'Ru') {
         localStorage.setItem('language', 'En');
         if (document.querySelector('[data = "CapsLock"]').classList.contains('caps_active')) {
           showKeyBoard(toUpperKeys(keyLayoutEn));
           document.querySelector('[data = "CapsLock"]').classList.add('caps_active');
+          document.querySelector('[data = "ControlLeft"]').classList.add('keyboard__key_active');
+          document.querySelector('[data = "AltLeft"]').classList.add('keyboard__key_active');
         } else {
           showKeyBoard(keyLayoutEn);
+          document.querySelector('[data = "ControlLeft"]').classList.add('keyboard__key_active');
+          document.querySelector('[data = "AltLeft"]').classList.add('keyboard__key_active');
         }
 
       } else {
@@ -119,8 +146,12 @@ window.addEventListener('DOMContentLoaded', function () {
         if (document.querySelector('[data = "CapsLock"]').classList.contains('caps_active')) {
           showKeyBoard(toUpperKeys(keyLayoutRu));
           document.querySelector('[data = "CapsLock"]').classList.add('caps_active');
+          document.querySelector('[data = "ControlLeft"]').classList.add('keyboard__key_active');
+          document.querySelector('[data = "AltLeft"]').classList.add('keyboard__key_active');
         } else {
           showKeyBoard(keyLayoutRu);
+          document.querySelector('[data = "ControlLeft"]').classList.add('keyboard__key_active');
+          document.querySelector('[data = "AltLeft"]').classList.add('keyboard__key_active');
         }
       }
 
@@ -191,7 +222,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
       // const textarea = document.querySelector('.input');
 
-      //Если нажат контрл, алт или win, ничего не делать
+      // Если нажат контрл, алт или win, ничего не делать
       if (event.key === 'Control' || event.key === 'Alt' || event.key === 'Meta') {
         return;
       }

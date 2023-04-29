@@ -341,6 +341,18 @@ h1, h2, h3, h4, h5, h6 {
   height: 100vh;
 }
 
+.title {
+  margin-bottom: 40px;
+  text-align: center;
+  font-size: 40px;
+  color: #885a5a;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 1em rgb(171, 20, 20);
+}
+
+.description {
+  font-size: 20px;
+}
+
 .input {
   width: 1116px;
   height: 200px;
@@ -350,6 +362,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .keyboard {
+  margin-bottom: 40px;
   background-color: rgb(73, 32, 32);
   padding: 10px;
   -webkit-user-select: none;
