@@ -219,16 +219,11 @@ window.addEventListener('DOMContentLoaded', function () {
       pressedKey.classList.add('keyboard__key_active'); //Добавление анимации при нажатии на клавишу
 
 
-
-      // const textarea = document.querySelector('.input');
-
       // Если нажат контрл, алт или win, ничего не делать
       if (event.key === 'Control' || event.key === 'Alt' || event.key === 'Meta') {
         return;
       }
 
-
-      // currentPointer = textarea.selectionStart;
       let currentPointer = textarea.selectionStart;
 
       console.log('KEY POINTER', currentPointer);
@@ -261,8 +256,6 @@ window.addEventListener('DOMContentLoaded', function () {
 
         textarea.value = textarea.value.slice(0, currentPointer) + textarea.value.slice(currentPointer + 1);
         textarea.setSelectionRange(currentPointer, currentPointer);
-
-
         return;
       }
 
@@ -523,13 +516,12 @@ window.addEventListener('DOMContentLoaded', function () {
 
 
 
-
-
-
-
-
-
+  test();
 
 
 });
 
+
+const test = () => {
+  console.log('Hello');
+};
