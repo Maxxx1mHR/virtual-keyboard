@@ -1,4 +1,5 @@
 .keyboard {
+  font-size: 25px;
   margin-bottom: 40px;
   background-color: rgb(73, 32, 32);
   padding: 10px;
@@ -7,6 +8,7 @@
 .keyboard__key {
   width: 60px;
   height: 60px;
+  color: rgb(89, 108, 255);
   background-color: #d66262;
   opacity: 0.5;
   margin: 4px;
@@ -27,6 +29,12 @@
 
 .keyboard__key_active {
   background-color: #ffffff;
+  opacity: 1;
+}
+
+.keyboard__key_hover {
+  color: rgb(237, 237, 55);
+  background-color: #0c3578;
   opacity: 1;
 }
 
