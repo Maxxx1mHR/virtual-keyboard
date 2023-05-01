@@ -36,7 +36,6 @@ const data = {
   ],
 };
 
-// Function to Upper Keys
 const toUpperKeys = (keys) => {
   const array = [];
   keys.forEach((key, index) => {
@@ -49,7 +48,6 @@ const toUpperKeys = (keys) => {
   return array;
 };
 
-// Function to Lower Keys
 const toLowerKeys = (keys) => {
   const array = [];
   keys.forEach((key, index) => {

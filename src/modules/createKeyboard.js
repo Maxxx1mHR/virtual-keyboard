@@ -1,4 +1,3 @@
-// Create KeyBoard
 import { data } from './data';
 
 const createKeyBoard = (keyData) => {

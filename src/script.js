@@ -16,21 +16,18 @@ import { upShiftRu, upShiftEn } from './modules/keyup';
 window.addEventListener('DOMContentLoaded', function () {
   const { keyCode } = data;
 
-  // Function createa new Node
   const createNode = (element, ...classes) => {
     const node = document.createElement(element);
     node.classList.add(classes);
     return node;
   };
 
-  // Function apppend Node to Dom
   const appendNodeToDom = (domNode, ...newNode) => {
     newNode.forEach((node) => {
       domNode.append(node);
     });
   };
 
-  // Create elements
   const createContainer = createNode('div', 'container');
   const createTitle = createNode('h1', 'title');
   createTitle.textContent = 'RSS Виртуальная клавиатура';
@@ -42,7 +39,6 @@ window.addEventListener('DOMContentLoaded', function () {
   const createLanguage = createNode('div', 'language');
   createLanguage.textContent = 'Для переключения языка комбинация: левыe ctrl + alt';
 
-  // Append elements to Dom
   appendNodeToDom(this.document.body, createContainer);
   appendNodeToDom(createContainer, createTitle, createTextarea, createKeyboard, createDescription);
   appendNodeToDom(createDescription, createOperatingSystem, createLanguage);
@@ -52,16 +48,14 @@ window.addEventListener('DOMContentLoaded', function () {
   const keyboard = document.querySelector('.keyboard');
   const textarea = document.querySelector('.input');
 
-  // //Press on key
   document.addEventListener('keydown', (event) => {
     changeLanguage(event);
-    // If key does not exsist in array. nothing to do
+
     if (keyCode.indexOf(event.code) === -1) {
       event.preventDefault();
       return;
     }
 
-    // If key exsist add in textarea
     if (document.querySelector(`[data='${event.code}']`)) {
       event.preventDefault();
       const pressedKey = document.querySelector(`[data='${event.code}']`);
@@ -145,7 +139,6 @@ window.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Click by mouse
   keyboard.addEventListener('mousedown', (event) => {
     if (event.target.classList.contains('keyboard__key')) {
       event.preventDefault();

@@ -3,7 +3,6 @@ import { data, toUpperKeys } from './data';
 
 const { keyLayoutRu, keyLayoutEn } = data;
 
-// Set language of keyboard by default
 const setDefaultLanguage = () => {
   if (localStorage.getItem('language') === null || localStorage.getItem('language') === 'Ru') {
     localStorage.setItem('language', 'Ru');
@@ -13,7 +12,6 @@ const setDefaultLanguage = () => {
   }
 };
 
-// Change language
 const changeLanguage = (event) => {
   if ((event.code === 'ControlLeft' && event.altKey) || (event.code === 'AltLeft' && event.ctrlKey)) {
     if (localStorage.getItem('language') === 'Ru') {
